@@ -1,3 +1,4 @@
+"use client";
 import Image from "next/image";
 import Markdown from "react-markdown";
 import cn from "classnames";
@@ -10,11 +11,16 @@ export const ProjectItem = ({
 }) => {
   return (
     <div
-      className={cn("flex flex-col-reverse justify-between w-full pb-20", className)}
+      className={cn(
+        "flex flex-col-reverse justify-between w-full pb-20",
+        className
+      )}
     >
       <div className="flex flex-col w-full lg:w-8/12">
-        <h3 className="mt-10 mb-8 text-3xl font-semibold lg:text-4xl lg:mt-0">{title}</h3>
-        <Markdown className="text-lg font-normal" children={desc} />
+        <h3 className="mt-10 mb-8 text-3xl font-semibold lg:text-4xl lg:mt-0">
+          {title}
+        </h3>
+        <Markdown className="text-lg font-normal">{desc}</Markdown>
       </div>
       <div className="flex justify-center w-full lg:4/12">
         <Image
