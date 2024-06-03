@@ -39,7 +39,7 @@ export default function Home() {
           </Canvas>
         </div>
       </section>
-      <section id="projects" className="px-4 mt-20 lg:px-10">
+      <section id="projects" className="px-4 pt-20 lg:px-10">
         <h2 className="mb-32 text-3xl font-semibold lg:text-5xl">Projects</h2>
         {projects?.map((project) => {
           return (

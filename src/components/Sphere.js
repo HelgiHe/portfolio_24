@@ -35,7 +35,7 @@ export const SphereComponent = () => {
       />
 
       {/* Lighting */}
-      <ambientLight intensity={2} color="#fff" layers={[0, 1]} />
+      <ambientLight intensity={1} color="#fff" layers={[0, 1]} />
       <directionalLight
         position={[15, -3, 4]}
         intensity={8}
@@ -45,7 +45,7 @@ export const SphereComponent = () => {
       />
 
       <directionalLight
-        position={[15, -3, 4]}
+        position={[12, -3, 4]}
         intensity={8}
         color="#B53928"
         castShadow
@@ -56,14 +56,14 @@ export const SphereComponent = () => {
       <Sphere position={[-7.5, -3, 0]} args={[1, 12, 12]} layers={0}>
         <meshPhongMaterial attach="material" color="#ffffff" />
       </Sphere>
-      <Sphere position={[-15, 0, -5]} args={[0.6, 12, 12]}>
+      <Sphere position={[-15, 0, -5]} args={[0.6, 12, 12]} layers={0}>
         <meshPhongMaterial attach="material" color="#ffffff" />
       </Sphere>
       <Sphere position={[7.5, -1, 0]} args={[1, 12, 12]}>
-        <meshPhongMaterial attach="material" color="#ffffff" />
+        <meshPhongMaterial attach="material" color="#ffffff" layers={0} />
       </Sphere>
       <Sphere position={[7.2, 1, 3]} args={[0.6, 12, 12]}>
-        <meshPhongMaterial attach="material" color="#ffffff" />
+        <meshPhongMaterial attach="material" color="#ffffff" layers={0} />
       </Sphere>
 
       {/* layer 1 */}

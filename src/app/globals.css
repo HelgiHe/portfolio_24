@@ -14,6 +14,11 @@ body {
   height: 100vh;
 }
 
+#projects {
+  background: linear-gradient(to top left, #E7EBEC, #afd0f647 30%, #FFFFFF);
+  height: 100vh; /* This ensures that the gradient covers the entire viewport height */
+}
+
 @layer utilities {
   .text-balance {
     text-wrap: balance;
