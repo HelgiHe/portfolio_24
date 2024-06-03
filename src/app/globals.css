@@ -11,7 +11,7 @@
 body {
   color: var(--text-color);
   background: linear-gradient(to bottom left, #E7EBEC, #afd0f647 30%, #FFFFFF);
-  height: 100vh; /* This ensures that the gradient covers the entire viewport height */
+  height: 100vh;
 }
 
 @layer utilities {
@@ -20,13 +20,16 @@ body {
   }
 }
 
-
 .reveal {
   animation-name: fadeIn;
   animation-duration: 500ms;
   animation-delay: 2s;
   animation-timing-function: ease-out;
   animation-fill-mode: forwards;
+}
+
+code {
+  font-size: 16px;
 }
 
 @keyframes fadeIn {
