@@ -9,7 +9,7 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body className="h-screen">
-          <a className="absolute top-10 right-20" href="mailto:helgihel@gmail.com z-90">Contact</a>
+          <a className="absolute top-10 right-20" href="mailto:helgihel@gmail.com">Contact</a>
         {children}
       </body>
     </html>
