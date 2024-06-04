@@ -41,13 +41,14 @@ export default function Home() {
       </section>
       <section id="projects" className="px-4 pt-20 lg:px-10">
         <h2 className="mb-32 text-3xl font-semibold lg:text-5xl">Projects</h2>
-        {projects?.map((project) => {
+        {projects?.map((project, index) => {
           return (
             <ProjectItem
               key={project.title}
               title={project.title}
-              img={"/harpa.jpeg"}
+              img={`/${project.image}`}
               desc={project.description}
+              className={index % 2 === 0 ? 'lg:flex-row' : 'lg:flex-row-reverse'}
             />
           );
         })}

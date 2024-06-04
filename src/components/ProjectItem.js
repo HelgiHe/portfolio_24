@@ -7,22 +7,22 @@ export const ProjectItem = ({
   img,
   title,
   desc,
-  className = "lg:flex-row",
+  className = "",
 }) => {
   return (
     <div
       className={cn(
-        "flex flex-col-reverse justify-between w-full pb-20",
+        "flex flex-col-reverse justify-between w-full pb-32",
         className
       )}
     >
-      <div className="flex flex-col w-full lg:w-8/12">
+      <div className="flex flex-col w-full lg:w-7/12">
         <h3 className="mt-10 mb-8 text-3xl font-semibold lg:text-4xl lg:mt-0">
           {title}
         </h3>
         <Markdown className="text-lg font-normal">{desc}</Markdown>
       </div>
-      <div className="flex justify-center w-full lg:4/12">
+      <div className="flex justify-center w-full lg:w-5/12">
         <Image
           className="w-64 mt-16 border-8 rounded-3xl border-zinc-900 lg:w-80"
           src={img}

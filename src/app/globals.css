@@ -16,7 +16,7 @@ body {
 
 #projects {
   background: linear-gradient(to top left, #E7EBEC, #afd0f647 30%, #FFFFFF);
-  height: 100vh;
+  height: 100%;
 }
 
 @layer utilities {
