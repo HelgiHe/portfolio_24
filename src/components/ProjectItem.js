@@ -3,12 +3,7 @@ import Image from "next/image";
 import Markdown from "react-markdown";
 import cn from "classnames";
 
-export const ProjectItem = ({
-  img,
-  title,
-  desc,
-  className = "",
-}) => {
+export const ProjectItem = ({ img, title, link, desc, className = "" }) => {
   return (
     <div
       className={cn(
@@ -17,9 +12,17 @@ export const ProjectItem = ({
       )}
     >
       <div className="flex flex-col w-full lg:w-7/12">
-        <h3 className="mt-10 mb-8 text-3xl font-semibold lg:text-4xl lg:mt-0">
-          {title}
-        </h3>
+        {link ? (
+          <a href={link} target="_blank" rel="noopener noreferrer">
+            <h3 className="mt-10 mb-8 text-3xl font-semibold lg:text-4xl lg:mt-0">
+              {title}
+            </h3>
+          </a>
+        ) : (
+          <h3 className="mt-10 mb-8 text-3xl font-semibold lg:text-4xl lg:mt-0">
+            {title}
+          </h3>
+        )}
         <Markdown className="text-lg font-normal">{desc}</Markdown>
       </div>
       <div className="flex justify-center w-full lg:w-5/12">

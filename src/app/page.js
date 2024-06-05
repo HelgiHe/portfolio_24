@@ -45,6 +45,7 @@ export default function Home() {
           return (
             <ProjectItem
               key={project.title}
+              link={project.link}
               title={project.title}
               img={`/${project.image}`}
               desc={project.description}
