@@ -14,6 +14,7 @@ export const projects = [
     and financials through an easy-to-navigate interface. This has been achieved with the combination of TypeScript for robust coding, 
     Tailwind CSS for responsive and aesthetic design, and Contentful, which serves as the headless CMS, enabling dynamic content management 
     and scalability.
+    
     Tools: GatsbyJs, Typescript, Tailwind, CSS, Contentful
     `,
   },
@@ -27,6 +28,7 @@ export const projects = [
     The app integrates with a GraphQL server via Apollo Client, and Prismic CMS.
     Users can access a wide range of functionalities, including prescription management, 
     and reminders to take their medicine.
+
     Tools: React Native, Tailwind, Apollo, Prismic
     `,
   },

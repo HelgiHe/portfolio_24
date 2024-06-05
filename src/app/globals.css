@@ -37,8 +37,13 @@ body {
   animation-fill-mode: forwards;
 }
 
+pre {
+  white-space: pre-line;
+}
+
 code {
   font-size: 16px;
+  white-space: pre-line;
 }
 
 @keyframes fadeIn {
