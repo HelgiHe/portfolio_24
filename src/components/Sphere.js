@@ -1,5 +1,4 @@
 "use client";
-import { Canvas, useThree } from "@react-three/fiber";
 import { Suspense, useRef, useMemo, useEffect } from "react";
 import {
   Box,
@@ -11,7 +10,6 @@ import { GridHelper } from "three";
 
 export const SphereComponent = () => {
   const cameraRef = useRef();
-  const { camera } = useThree();
   const boxRotation = useMemo(() => [0, Math.PI / 2.2, 0], []);
 
   useEffect(() => {
@@ -45,8 +43,8 @@ export const SphereComponent = () => {
       />
 
       <directionalLight
-        position={[12, -3, 4]}
-        intensity={8}
+        position={[16, -3, 4]}
+        intensity={7}
         color="#B53928"
         castShadow
         layers={1}

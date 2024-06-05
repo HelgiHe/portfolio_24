@@ -25,6 +25,10 @@ body {
   }
 }
 
+.three-canvas {
+  touch-action: auto !important;
+}
+
 .reveal {
   animation-name: fadeIn;
   animation-duration: 500ms;

@@ -34,7 +34,7 @@ export default function Home() {
           </h2>
         </div>
         <div className="absolute bottom-0 left-0 right-0 top-20">
-          <Canvas shadows>
+          <Canvas className="three-canvas" shadows>
             <SphereComponent />
           </Canvas>
         </div>
