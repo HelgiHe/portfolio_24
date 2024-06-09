@@ -1,4 +1,4 @@
-import { useRef, useState } from "react";
+import { useRef, useState, useEffect } from "react";
 import { useFrame } from "@react-three/fiber";
 import { Sphere } from "@react-three/drei";
 
@@ -13,13 +13,24 @@ export const BouncingSphere = ({
   const [velocityY, setVelocityY] = useState(initalVelocityY);
   const [velocityX, setVelocityX] = useState(initalVelocityX);
   const [velocityZ, setVelocityZ] = useState(initalVelocityZ);
+  const [isAnimating, setIsAnimating] = useState(false);
   const gravity = -0.005;
   const bounceFactor = -0.6;
   const groundLevel = -4;
   const friction = 0.99;
 
+  // delay animation
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setIsAnimating(true);
+    }, 2000);
+
+    return () => clearTimeout(timer);
+  }, []);
+
   useFrame(() => {
-    // Update position based on velocity
+    if (!isAnimating) return;
+
     const newY = position[1] + velocityY;
     const newX = position[0] + velocityX;
     const newZ = position[2] + velocityZ;
@@ -49,15 +60,17 @@ export const BouncingSphere = ({
     <>
       <ambientLight intensity={0.5} />
       <pointLight position={[10, 10, 10]} />
-      <Sphere ref={sphereRef} args={[0.3, 12, 12]} position={position}>
-        <meshPhysicalMaterial
-          color="#ffffff"
-          metalness={0.6}
-          roughness={0.4}
-          reflectivity={0.9}
-          castShadow
-        />{" "}
-      </Sphere>
+      {isAnimating && (
+        <Sphere ref={sphereRef} args={[0.3, 12, 12]} position={position}>
+          <meshPhysicalMaterial
+            color="#ffffff"
+            metalness={0.6}
+            roughness={0.4}
+            reflectivity={0.9}
+            castShadow
+          />
+        </Sphere>
+      )}
     </>
   );
 };
