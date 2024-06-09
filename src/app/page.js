@@ -2,7 +2,7 @@
 import Head from "next/head";
 import { motion } from "framer-motion";
 import { ProjectItem } from "@/components/ProjectItem";
-import { SphereComponent } from "@/components/Sphere";
+import { Scene } from "@/components/Scene";
 import { projects } from "@/content/projects";
 import { Canvas } from "@react-three/fiber";
 
@@ -45,7 +45,7 @@ export default function Home() {
           </div>
           <div className="absolute bottom-0 left-0 right-0 top-20">
             <Canvas className="three-canvas" shadows>
-              <SphereComponent />
+              <Scene />
             </Canvas>
           </div>
         </section>
