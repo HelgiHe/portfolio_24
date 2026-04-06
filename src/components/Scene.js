@@ -1,21 +1,19 @@
 "use client";
-import { Suspense, useRef, useMemo, useEffect } from "react";
-import {
-  Box,
-  OrbitControls,
-  PerspectiveCamera,
-  Sphere,
-} from "@react-three/drei";
+import { Suspense, useRef, useMemo, useEffect, useState } from "react";
+import { Box, OrbitControls, PerspectiveCamera } from "@react-three/drei";
+import { useFrame } from "@react-three/fiber";
 import { GridHelper } from "three";
 import { SphereWithLight } from "./SphereWithLight";
 import { BouncingSphere } from "./BouncingSphere";
 
 export const Scene = () => {
   const cameraRef = useRef();
+  const firstBoxRef = useRef();
   const boxRotation = useMemo(() => [0, Math.PI / 2.2, 0], []);
   // Create references for the spheres and spotlights
   const sphereRef1 = useRef();
   const spotlightRef1 = useRef();
+  const [scrollY, setScrollY] = useState(0);
 
   useEffect(() => {
     // Set the target of the spotlight to the sphere
@@ -23,6 +21,30 @@ export const Scene = () => {
       spotlightRef1.current.target = sphereRef1.current;
     }
   }, []);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setScrollY(window.scrollY);
+    };
+
+    handleScroll();
+    window.addEventListener("scroll", handleScroll, { passive: true });
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
+
+  useFrame(() => {
+    if (!firstBoxRef.current) return;
+
+    const scrollOffset = Math.min(scrollY * 0.0008, 0.4);
+    const rotationOffset = scrollY * 0.0015;
+
+    firstBoxRef.current.rotation.x = rotationOffset;
+    firstBoxRef.current.rotation.y = boxRotation[1] + rotationOffset;
+    firstBoxRef.current.position.y = 1.5 - scrollOffset;
+  });
 
   return (
     <Suspense fallback={null}>
@@ -90,23 +112,22 @@ export const Scene = () => {
         lightColor="#B53928"
       />
 
-      <BouncingSphere
-        initalPos={[-5, -3, -6]}
-       />
+      <BouncingSphere initalPos={[-5, -3, -6]} />
       <BouncingSphere
         initalPos={[-6, -2, -4]}
         initalVelocityX={0.09}
         initalVelocityY={0.05}
         initalVelocityZ={0.055}
-       />
+      />
       <BouncingSphere
         initalPos={[-7, -0.5, -5.6]}
         initalVelocityX={0.09}
         initalVelocityY={0.05}
         initalVelocityZ={0.055}
-       />
+      />
 
       <Box
+        ref={firstBoxRef}
         position={[-2, 1.5, 0]}
         args={[2, 1.5, 0.5]}
         rotation={boxRotation}

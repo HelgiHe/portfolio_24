@@ -37,7 +37,7 @@ export default function Home() {
               })}
             </h1>
             <h2 className="text-xl font-medium opacity-0 lg:text-3xl reveal">
-              Front end leanind web dev
+              Front end leaning web dev
             </h2>
           </div>
           <div className="absolute bottom-0 left-0 right-0 top-20">
