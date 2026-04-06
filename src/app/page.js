@@ -14,10 +14,7 @@ export default function Home() {
     <>
       <Head>
         <title>Helgi H</title>
-        <meta
-          name="portfolio"
-          content="a collection of some of my work"
-        />
+        <meta name="portfolio" content="a collection of some of my work" />
       </Head>
 
       <main>
@@ -40,7 +37,7 @@ export default function Home() {
               })}
             </h1>
             <h2 className="text-xl font-medium opacity-0 lg:text-3xl reveal">
-              Front end dev
+              Front end leanind web dev
             </h2>
           </div>
           <div className="absolute bottom-0 left-0 right-0 top-20">
