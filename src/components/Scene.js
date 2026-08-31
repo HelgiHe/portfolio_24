@@ -48,11 +48,13 @@ export const Scene = () => {
 
   return (
     <Suspense fallback={null}>
+      {/*
       <primitive
         object={new GridHelper(18, 15)}
         position={[-4, -5, -5]}
         rotation={[0, 0, 0]}
       />
+      */}
       {/* Camera setup */}
       <PerspectiveCamera
         ref={cameraRef}
@@ -111,7 +113,7 @@ export const Scene = () => {
         args={[0.4, 12, 12]}
         lightColor="#B53928"
       />
-
+      { /*
       <BouncingSphere initalPos={[-5, -3, -6]} />
       <BouncingSphere
         initalPos={[-6, -2, -4]}
@@ -125,7 +127,7 @@ export const Scene = () => {
         initalVelocityY={0.05}
         initalVelocityZ={0.055}
       />
-
+*/}
       <Box
         ref={firstBoxRef}
         position={[-2, 1.5, 0]}

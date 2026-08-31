@@ -4,8 +4,25 @@
 
 :root {
   background: white;
-  font-family: Helvetica, Arial, sans-serif;
+  font-family: "Geist", sans-serif;
   --text-color: rgb(25, 36, 66);
+
+  /* Surfaces */
+  --color-bg: #F2F0EB;
+  --color-bg-elevated: #F7F6F2;
+
+  /* Typography */
+  --color-text: #111111;
+  --color-text-secondary: #66645F;
+  --color-text-muted: #96938C;
+
+  /* Lines */
+  --color-border: #D8D5CE;
+  --color-border-dark: #B9B6AF;
+
+  /* Inverted elements */
+  --color-dark: #111111;
+  --color-on-dark: #F5F3EE;
 }
 
 body {
@@ -54,4 +71,3 @@ code {
       opacity: 1;
   }
 }
-
