@@ -8,16 +8,17 @@ export type ProjectMediaItem = {
   alt: string;
   aspect?: "landscape" | "portrait" | "square";
   position?: string;
+  caption?: string;
 };
 
 export type ProjectGalleryBlock = {
-  type: "full" | "two-up";
+  type: "full" | "two-up" | "tool-composition";
   items: ProjectMediaItem[];
   surface?: "default" | "elevated";
 };
 
 export type ProjectData = {
-  slug: "harpa" | "epli" | "skagi";
+  slug: "harpa" | "epli" | "skagi" | "heilsuvera" | "distica" | "velvera";
   number: string;
   title: string;
   category: string;
@@ -25,8 +26,10 @@ export type ProjectData = {
   externalLink?: string;
   role?: string[];
   technologies?: string[];
+  cms?: string[];
   heroImage: ProjectMediaItem;
   intro?: string;
+  compact?: boolean;
   sections: ProjectSection[];
   galleries: ProjectGalleryBlock[];
 };
@@ -168,6 +171,113 @@ export const projects: ProjectData[] = [
         surface: "elevated",
       },
     ],
+  },
+  {
+    slug: "heilsuvera",
+    number: "04",
+    title: "Heilsuvera",
+    category: "Interactive health tools · Web",
+    description:
+      "Development of interactive health tools for Iceland’s public health platform, including configurable health assessments and calculators for blood pressure, BMI and other health metrics.",
+    role: ["Frontend development"],
+    cms: ["Umbraco"],
+    compact: true,
+    heroImage: {
+      src: "/healthtest.png",
+      alt: "Heilsuvera configurable health assessment interface.",
+      aspect: "landscape",
+      position: "object-top",
+    },
+    intro:
+      "Development of interactive tools for Iceland’s public health platform.",
+    sections: [
+      {
+        label: "Overview",
+        text: "A collection of interactive health tools developed for Heilsuvera, designed to turn health information into simple, guided digital experiences.",
+      },
+      {
+        label: "Configurable assessments",
+        text: "Interactive assessments can be configured through the Umbraco backend, allowing different questionnaires and content to be managed without creating a separate frontend implementation for each one.",
+      },
+      {
+        label: "Calculators",
+        text: "The work also includes focused tools such as blood pressure and BMI calculators, combining user input, calculation logic and clear result states.",
+      },
+    ],
+    galleries: [
+      {
+        type: "tool-composition",
+        items: [
+          {
+            src: "/healthtest.png",
+            alt: "Heilsuvera configurable health assessment with questions and guided form flow.",
+            aspect: "landscape",
+            position: "object-top",
+            caption: "Configurable health assessment",
+          },
+          {
+            src: "/blood_calc.png",
+            alt: "Heilsuvera blood pressure calculator interface with user input fields.",
+            aspect: "portrait",
+            position: "object-top",
+            caption: "Blood pressure calculator",
+          },
+          {
+            src: "/bmi.png",
+            alt: "Heilsuvera BMI calculator interface showing a focused calculator layout.",
+            aspect: "portrait",
+            position: "object-top",
+            caption: "BMI calculator",
+          },
+        ],
+        surface: "elevated",
+      },
+    ],
+  },
+  {
+    slug: "distica",
+    number: "05",
+    title: "Distica",
+    category: "Healthcare / E-commerce · Web",
+    description:
+      "Digital commerce platform for Iceland's healthcare sector.",
+    compact: true,
+    heroImage: {
+      src: "/distica.png",
+      alt: "Distica healthcare commerce interface in a focused editorial crop.",
+      aspect: "landscape",
+      position: "object-top",
+    },
+    intro: "Short-form frontend work for a healthcare commerce platform.",
+    sections: [
+      {
+        label: "Overview",
+        text: "Frontend work for a digital commerce platform in Iceland’s healthcare sector.",
+      },
+    ],
+    galleries: [],
+  },
+  {
+    slug: "velvera",
+    number: "06",
+    title: "Velvera",
+    category: "E-commerce · Web",
+    description: "Beauty and wellness retail experience.",
+    compact: true,
+    heroImage: {
+      src: "/velvera.png",
+      alt: "Velvera beauty and wellness storefront presented in a clean editorial crop.",
+      aspect: "landscape",
+      position: "object-top",
+    },
+    intro: "Short-form frontend work for a beauty and wellness retail experience.",
+    sections: [
+      {
+        label: "Overview",
+        text: "Frontend work for a clean e-commerce experience focused on beauty and wellness retail.",
+      },
+    ],
+    galleries: [],
   },
 ];
 

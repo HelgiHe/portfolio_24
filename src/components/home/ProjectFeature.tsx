@@ -15,6 +15,8 @@ type ProjectFeatureProps = {
   reverse?: boolean;
   imagePosition?: string;
   priority?: boolean;
+  imageFilter?: string;
+  imageOpacity?: number;
 };
 
 const ease: [number, number, number, number] = [0.22, 1, 0.36, 1];
@@ -52,6 +54,8 @@ export function ProjectFeature({
   reverse = false,
   imagePosition = "object-center",
   priority = false,
+  imageFilter = "contrast(0.93) saturate(0.92) brightness(1.02)",
+  imageOpacity = 0.97,
 }: ProjectFeatureProps) {
   const reduceMotion = useReducedMotion() ?? false;
   const href = `/work/${slug}`;
@@ -111,6 +115,10 @@ export function ProjectFeature({
                   fill
                   sizes="(min-width: 1280px) 68vw, (min-width: 1024px) 62vw, 100vw"
                   className={`object-cover ${imagePosition}`}
+                  style={{
+                    filter: imageFilter,
+                    opacity: imageOpacity,
+                  }}
                   priority={priority}
                 />
               </motion.div>

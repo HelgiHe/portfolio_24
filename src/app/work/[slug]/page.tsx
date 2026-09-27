@@ -63,6 +63,10 @@ function buildMeta(project: ProjectData): MetaItem[] {
     items.push({ label: "Technology", value: project.technologies });
   }
 
+  if (project.cms?.length) {
+    items.push({ label: "CMS", value: project.cms });
+  }
+
   if (project.externalLink) {
     items.push({
       label: "Website",
