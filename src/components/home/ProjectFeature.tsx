@@ -12,6 +12,9 @@ type ProjectFeatureProps = {
   image: string;
   slug: string;
   imageAlt?: string;
+  reverse?: boolean;
+  imagePosition?: string;
+  priority?: boolean;
 };
 
 const ease: [number, number, number, number] = [0.22, 1, 0.36, 1];
@@ -46,15 +49,22 @@ export function ProjectFeature({
   image,
   slug,
   imageAlt,
+  reverse = false,
+  imagePosition = "object-center",
+  priority = false,
 }: ProjectFeatureProps) {
   const reduceMotion = useReducedMotion() ?? false;
   const href = `/work/${slug}`;
   const layoutId = `project-image-${slug}`;
 
   return (
-    <article className="py-14 md:py-20 lg:py-24">
+    <article className="border-b border-[var(--color-border)]/60 py-14 md:py-20 lg:py-24">
       <div className="grid grid-cols-1 gap-y-8 md:gap-y-10 lg:grid-cols-12 lg:gap-x-12 xl:gap-x-16">
-        <div className="order-1 lg:col-span-4 lg:pr-4 xl:col-span-[4]">
+        <div
+          className={`order-1 lg:col-span-4 lg:pr-4 xl:col-span-[4] ${
+            reverse ? "lg:col-start-9" : ""
+          }`}
+        >
           <motion.p
             className="text-[12px] uppercase tracking-[0.08em] text-[var(--color-text-muted)]"
             {...fadeUp(0, reduceMotion)}
@@ -76,7 +86,9 @@ export function ProjectFeature({
         </div>
 
         <motion.div
-          className="order-2 lg:col-span-8 xl:col-span-[8]"
+          className={`order-2 lg:col-span-8 xl:col-span-[8] ${
+            reverse ? "lg:col-start-1 lg:row-start-1" : ""
+          }`}
           initial={reduceMotion ? { opacity: 1 } : { opacity: 0.85, scale: 1.025, clipPath: "inset(8% 0 0 0)" }}
           whileInView={reduceMotion ? { opacity: 1 } : { opacity: 1, scale: 1, clipPath: "inset(0 0 0 0)" }}
           viewport={{ once: true, amount: 0.25 }}
@@ -98,8 +110,8 @@ export function ProjectFeature({
                   alt={imageAlt ?? `${title} project preview`}
                   fill
                   sizes="(min-width: 1280px) 68vw, (min-width: 1024px) 62vw, 100vw"
-                  className="object-cover object-center"
-                  priority
+                  className={`object-cover ${imagePosition}`}
+                  priority={priority}
                 />
               </motion.div>
             </Link>
@@ -107,7 +119,9 @@ export function ProjectFeature({
         </motion.div>
 
         <motion.div
-          className="order-3 lg:col-span-4 lg:max-w-[22rem] lg:pr-4 xl:col-span-[4]"
+          className={`order-3 lg:col-span-4 lg:max-w-[22rem] lg:pr-4 xl:col-span-[4] ${
+            reverse ? "lg:col-start-9" : ""
+          }`}
           {...fadeUp(0.1, reduceMotion)}
         >
           <p className="text-[15px] leading-[1.55] text-[var(--color-text-secondary)] md:text-[16px]">
@@ -116,7 +130,9 @@ export function ProjectFeature({
         </motion.div>
 
         <motion.div
-          className="order-4 lg:col-span-4 lg:pr-4 xl:col-span-[4]"
+          className={`order-4 lg:col-span-4 lg:pr-4 xl:col-span-[4] ${
+            reverse ? "lg:col-start-9" : ""
+          }`}
           {...fadeUp(0.14, reduceMotion)}
         >
           <Link
