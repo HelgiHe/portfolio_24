@@ -3,71 +3,53 @@
 @tailwind utilities;
 
 :root {
-  background: white;
-  font-family: "Geist", sans-serif;
-  --text-color: rgb(25, 36, 66);
-
-  /* Surfaces */
   --color-bg: #F2F0EB;
   --color-bg-elevated: #F7F6F2;
-
-  /* Typography */
   --color-text: #111111;
   --color-text-secondary: #66645F;
   --color-text-muted: #96938C;
-
-  /* Lines */
   --color-border: #D8D5CE;
-  --color-border-dark: #B9B6AF;
+}
 
-  /* Inverted elements */
-  --color-dark: #111111;
-  --color-on-dark: #F5F3EE;
+html {
+  scroll-behavior: smooth;
 }
 
 body {
-  color: var(--text-color);
-  background: linear-gradient(to bottom left, #E7EBEC, #afd0f647 30%, #FFFFFF);
-  height: 100vh;
+  margin: 0;
+  background: var(--color-bg);
+  color: var(--color-text);
+  font-family: var(--font-geist), Arial, Helvetica, sans-serif;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
-#projects {
-  background: linear-gradient(to top left, #E7EBEC, #afd0f647 30%, #FFFFFF);
-  height: 100%;
+a {
+  color: inherit;
+  text-decoration: none;
 }
 
-@layer utilities {
-  .text-balance {
-    text-wrap: balance;
+* {
+  box-sizing: border-box;
+}
+
+::selection {
+  background: var(--color-border);
+  color: var(--color-text);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
   }
-}
 
-.three-canvas {
-  touch-action: auto !important;
-}
-
-.reveal {
-  animation-name: fadeIn;
-  animation-duration: 500ms;
-  animation-delay: 2s;
-  animation-timing-function: ease-out;
-  animation-fill-mode: forwards;
-}
-
-pre {
-  white-space: pre-line;
-}
-
-code {
-  font-size: 16px;
-  white-space: pre-line;
-}
-
-@keyframes fadeIn {
-  from {
-      opacity: 0;
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
   }
-  to {
-      opacity: 1;
   }
-}
