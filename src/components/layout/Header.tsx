@@ -6,6 +6,7 @@ import { Container } from "./Container";
 
 const navItems = [
   { href: "/#work", label: "Work" },
+  { href: "/about", label: "About" },
   { href: "/#contact", label: "Contact" },
 ];
 
@@ -26,17 +27,28 @@ export function Header() {
 
           <nav aria-label="Primary" className="hidden md:block">
             <ul className="flex items-center gap-10 text-[14px] text-[var(--color-text-secondary)] lg:gap-12">
-              {navItems.map((item) => (
-                <li key={item.href}>
-                  <Link
-                    href={item.href}
-                    className="group relative inline-flex py-2 transition-colors duration-200 hover:text-[var(--color-text)] focus-visible:text-[var(--color-text)] focus-visible:outline-none"
-                  >
-                    <span>{item.label}</span>
-                    <span className="absolute bottom-0 left-0 h-px w-full origin-left scale-x-0 bg-[var(--color-text)] transition-transform duration-300 ease-out group-hover:scale-x-100 group-focus-visible:scale-x-100" />
-                  </Link>
-                </li>
-              ))}
+              {navItems.map((item) => {
+                const isActive = item.href === "/about" && pathname === "/about";
+
+                return (
+                  <li key={item.href}>
+                    <Link
+                      href={item.href}
+                      aria-current={isActive ? "page" : undefined}
+                      className={`group relative inline-flex py-2 transition-colors duration-200 hover:text-[var(--color-text)] focus-visible:text-[var(--color-text)] focus-visible:outline-none ${
+                        isActive ? "text-[var(--color-text)]" : ""
+                      }`}
+                    >
+                      <span>{item.label}</span>
+                      <span
+                        className={`absolute bottom-0 left-0 h-px w-full origin-left bg-[var(--color-text)] transition-transform duration-300 ease-out group-hover:scale-x-100 group-focus-visible:scale-x-100 ${
+                          isActive ? "scale-x-100" : "scale-x-0"
+                        }`}
+                      />
+                    </Link>
+                  </li>
+                );
+              })}
               <li aria-hidden="true">
                 <span className="block h-[10px] w-[10px] rounded-full bg-[var(--color-text)]" />
               </li>
